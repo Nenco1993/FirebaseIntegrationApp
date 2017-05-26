@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "78073926599",
+    "firebase_url": "https://fir-integrationapp.firebaseio.com",
+    "project_id": "fir-integrationapp",
+    "storage_bucket": "fir-integrationapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78073926599:android:b622c578352241be",
+        "android_client_info": {
+          "package_name": "com.example.neven.firebaseintegrationapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "78073926599-ts9e270f0vltfgqbs8hv0qdve0ats5p7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN3Xgs8AgsKOsBU9g3GlhuNfa38sVTSto"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
