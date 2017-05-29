@@ -13,4 +13,10 @@ public interface FirebasePresenter {
 
     void changeEmail(User user);
 
+    void setupNotifications();
+
+    void onReceiveNotification();
+
+    void unregisterNotificationReceiver();
+
 }

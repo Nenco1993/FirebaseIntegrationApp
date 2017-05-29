@@ -5,6 +5,7 @@ import com.example.neven.firebaseintegrationapp.activities.MainActivity;
 import com.example.neven.firebaseintegrationapp.dagger.modules.AppModule;
 import com.example.neven.firebaseintegrationapp.dagger.modules.FirebaseModule;
 import com.example.neven.firebaseintegrationapp.dagger.modules.ResetPasswordModule;
+import com.example.neven.firebaseintegrationapp.service.MyFirebaseMessagingService;
 import dagger.Component;
 
 import javax.inject.Singleton;
@@ -17,6 +18,8 @@ import javax.inject.Singleton;
 public interface AppComponent {
 
     void inject(BaseActivity activity);
+
+    //void inject(MyFirebaseMessagingService service);
 
     FirebaseComponent newFirebaseSubComponent(FirebaseModule module);
 

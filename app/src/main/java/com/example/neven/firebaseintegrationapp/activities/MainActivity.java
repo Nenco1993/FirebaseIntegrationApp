@@ -15,6 +15,7 @@ import com.example.neven.firebaseintegrationapp.R;
 import com.example.neven.firebaseintegrationapp.dagger.modules.FirebaseModule;
 import com.example.neven.firebaseintegrationapp.models.User;
 import com.example.neven.firebaseintegrationapp.presenters.FirebasePresenter;
+import com.example.neven.firebaseintegrationapp.utils.MainUtils;
 import com.example.neven.firebaseintegrationapp.views.FirebaseView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -43,6 +44,9 @@ public class MainActivity extends BaseActivity implements FirebaseView {
     @Inject
     User user;
 
+    @Inject
+    MainUtils mainUtils;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,7 @@ public class MainActivity extends BaseActivity implements FirebaseView {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         ((MyApplication) getApplication()).getAppComponent().newFirebaseSubComponent(new FirebaseModule(this, this)).inject(this);
+        presenter.onReceiveNotification();
 
 
     }
@@ -63,8 +68,8 @@ public class MainActivity extends BaseActivity implements FirebaseView {
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "fill in the fields", Toast.LENGTH_SHORT).show();
         } else {
-            user.setEmail(email);
-            user.setPassword(password);
+            user.email = email;
+            user.password = password;
             presenter.createUser(user);
         }
 
@@ -80,8 +85,8 @@ public class MainActivity extends BaseActivity implements FirebaseView {
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "fill in the fields", Toast.LENGTH_SHORT).show();
         } else {
-            user.setEmail(email);
-            user.setPassword(password);
+            user.email = email;
+            user.password = password;
             presenter.loginUser(user);
         }
 
@@ -100,6 +105,21 @@ public class MainActivity extends BaseActivity implements FirebaseView {
     public void showResponse(String message) {
 
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mainUtils.appIsNotInBackground();
+        presenter.setupNotifications();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mainUtils.appIsInBackground();
+        presenter.unregisterNotificationReceiver();
 
     }
 }

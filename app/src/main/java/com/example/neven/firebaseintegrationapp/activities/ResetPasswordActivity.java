@@ -47,7 +47,7 @@ public class ResetPasswordActivity extends AppCompatActivity implements ResetPas
         if (email.isEmpty()) {
             Toast.makeText(this, "fill in the fields", Toast.LENGTH_SHORT).show();
         } else {
-            user.setEmail(email);
+            user.email=email;
 
             presenter.resetPassword(user);
         }

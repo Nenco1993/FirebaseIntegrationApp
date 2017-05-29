@@ -24,7 +24,7 @@ public class ResetPasswordPresenterImpl implements ResetPasswordPresenter {
 
     @Override
     public void resetPassword(User user) {
-        auth.sendPasswordResetEmail(user.getEmail()).addOnCompleteListener(task -> {
+        auth.sendPasswordResetEmail(user.email).addOnCompleteListener(task -> {
 
 
             if (task.isSuccessful()) {

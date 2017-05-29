@@ -3,6 +3,7 @@ package com.example.neven.firebaseintegrationapp.dagger.components;
 import com.example.neven.firebaseintegrationapp.activities.MainActivity;
 import com.example.neven.firebaseintegrationapp.dagger.modules.FirebaseModule;
 import com.example.neven.firebaseintegrationapp.dagger.scopes.ActivityScope;
+import com.example.neven.firebaseintegrationapp.service.MyFirebaseMessagingService;
 import dagger.Subcomponent;
 
 /**
@@ -14,6 +15,8 @@ public interface FirebaseComponent {
 
 
     void inject(MainActivity activity);
+
+    void inject(MyFirebaseMessagingService service);
 
 
 
